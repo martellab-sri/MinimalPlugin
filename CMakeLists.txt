@@ -12,11 +12,11 @@ SET( DEVELOPER_TEXT "Sunnybrook Research Institute" CACHE STRING "Name of the au
 SET(PROGRAMFILESX86 "PROGRAMFILES\(X86\)")
 FIND_PACKAGE( SEDEENSDK REQUIRED 
                 HINTS ../../.. 
-				  "$ENV{${PROGRAMFILESX86}}/Sedeen Viewer SDK/v5.4.0.20181217/msvc2017"
+                  "$ENV{${PROGRAMFILESX86}}/Sedeen Viewer SDK/v5.4.0.20181217/msvc2017"
                   "$ENV{PROGRAMFILES}/Sedeen Viewer SDK/v5.4.0.20181217/msvc2017" )
 
-INCLUDE_DIRECTORIES( "${SEDEENSDK_INCLUDE_DIR}" )
-LINK_DIRECTORIES( "${SEDEENSDK_LIBRARY_DIR}" )
+INCLUDE_DIRECTORIES( ${INCLUDE_DIRECTORIES} "${SEDEENSDK_INCLUDE_DIR}" )
+LINK_DIRECTORIES( ${LINK_DIRECTORIES} "${SEDEENSDK_LIBRARY_DIR}" )
 
 # Build the code into a module library
 ADD_LIBRARY( ${PROJECT_NAME} MODULE ${PROJECT_NAME}.cpp ${PROJECT_NAME}.h )
@@ -34,7 +34,7 @@ IF( NOT PLUGIN_DESTINATION_DIR )
 	SET( TEMPPLUGINDIR "${PATHCORE_DIR}/plugins/cpp/piip/${PROJECT_NAME}" )
   ELSE()
 	SET( TEMPPLUGINDIR "PLUGIN_DESTINATION_DIR-NOTFOUND" )
-	MESSAGE( SEND_ERROR "PLUGIN_DESTINATION_DIR not found. Set this to the target installation directory of the plugin within Sedeen Viewer (e.g. C:/Program Files/Sedeen Viewer/plugins/cpp/piip/${PROJECT_NAME}).")
+	MESSAGE( SEND_ERROR "PLUGIN_DESTINATION_DIR not found. Set this to the target installation directory of the plugin within Sedeen Viewer (e.g. $ENV{PROGRAMFILES}/Sedeen Viewer/plugins/cpp/piip/${PROJECT_NAME}).")
   ENDIF()
   SET(PLUGIN_DESTINATION_DIR ${TEMPPLUGINDIR} CACHE PATH "Installation directory for the plugin within Sedeen Viewer")
 ENDIF()
