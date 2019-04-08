@@ -16,7 +16,7 @@
  *
  *=========================================================================*/
 
-#include "testPlugin.h"
+#include "MinimalPlugin.h"
 
 //Sedeen required headers
 #include "Algorithm.h"
@@ -30,24 +30,24 @@
 // Declare that this object has AlgorithmBase subclasses
 //  and declare each of those sub-classes
 POCO_BEGIN_MANIFEST(sedeen::algorithm::AlgorithmBase)
-POCO_EXPORT_CLASS(sedeen::algorithm::testPlugin)
+POCO_EXPORT_CLASS(sedeen::algorithm::MinimalPlugin)
 POCO_END_MANIFEST
 
 namespace sedeen {
 namespace algorithm {
 
 //Constructor
-testPlugin::testPlugin() : _result() {
+MinimalPlugin::MinimalPlugin() : _result() {
 }
 
 //Destructor
-testPlugin::~testPlugin() {
+MinimalPlugin::~MinimalPlugin() {
 }
 
-void testPlugin::init(const image::ImageHandle& image) {
+void MinimalPlugin::init(const image::ImageHandle& image) {
 }
 
-void testPlugin::run() {
+void MinimalPlugin::run() {
 }
 
 } // namespace algorithm

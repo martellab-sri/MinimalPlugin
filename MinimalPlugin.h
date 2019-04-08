@@ -16,8 +16,8 @@
  *
  *=========================================================================*/
 
-#ifndef SEDEEN_SRC_PLUGINS_TESTPLUGIN_TESTPLUGIN_H
-#define SEDEEN_SRC_PLUGINS_TESTPLUGIN_TESTPLUGIN_H
+#ifndef SEDEEN_SRC_PLUGINS_MINIMALPLUGIN_MINIMALPLUGIN_H
+#define SEDEEN_SRC_PLUGINS_MINIMALPLUGIN_MINIMALPLUGIN_H
 
 //Sedeen required headers
 #include "algorithm/AlgorithmBase.h"
@@ -28,12 +28,12 @@
 namespace sedeen {   
 namespace algorithm {
 
-class testPlugin : public AlgorithmBase {
+class MinimalPlugin : public AlgorithmBase {
 public:
 	// Constructor
-	testPlugin();
+	MinimalPlugin();
 	// Destructor
-	virtual ~testPlugin();
+	virtual ~MinimalPlugin();
 
 	// Other public methods you would like to include
 
@@ -44,7 +44,6 @@ private:
 
 private:
 	//Private variables
-	DisplayAreaParameter _display_area;
 	ImageResult _result;
 
 };
